@@ -42,7 +42,13 @@ def calculate():
 		if l==h:
 			print('\nSomeThings Wrong Here!!!!\nTry Again And Remember Your Number!!!!')
 			break
-		guess = int((h+1-l)/2 + l-1)		# Main Logic
+		# Main Logic
+		if h-l<=1 and res=='l':
+			guess = l + 1
+		elif h-l<=1 and res=='h':
+			guess = l
+		else:
+			guess = int((h-l)/2 + l)
 		res = ask(guess)
 		if res=='y':
 			print(f'\n{50*"*"}\nI Guessed Your Number In {str(attempts)} attempts')
